@@ -1,30 +1,51 @@
+<script setup>
+defineProps ({
+  game: {
+    type: Object,
+    default: {
+      id: 1,
+      title: 'Game',
+      short_description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem eos numquam, tempora quibusdam maxime distinctio consequatur enim rerum sunt perferendis nostrum corporis debitis ab iste amet, modi veniam impedit inventore?',
+      release_date: '11.02.2003',
+      platform: 'Windows',
+      thumbnail: "https://play-lh.googleusercontent.com/LByrur1mTmPeNr0ljI-uAUcct1rzmTve5Esau1SwoAzjBXQUby6uHIfHbF9TAT51mgHm",
+    },
+  },
+});
+</script>
+
 <template>
   <div>
-    <img src="https://play-lh.googleusercontent.com/LByrur1mTmPeNr0ljI-uAUcct1rzmTve5Esau1SwoAzjBXQUby6uHIfHbF9TAT51mgHm"> 
-    <h1>Game</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, id vitae necessitatibus quidem, 
-      recusandae nihil voluptatibus voluptate eos repellat delectus sit labore, culpa dignissimos fugit eum iusto ducimus! 
-      Ea, doloribus.</p>
-    <nav>
-      <i class ="fas fa-desktop"></i>
-      <h4>windows</h4>
-    </nav>
-    <nav>
-      <i class ="far fa-clock"></i>
-      <h4>date</h4>
-    </nav>
-    <router-link to="/">Подробнее</router-link>
+      <img :src="game.thumbnail"/> 
+      <h1>
+        {{game.title}}
+      </h1>
+      <p>
+        {{game.short_description}}
+      </p>
+      <nav>
+        <i class ="fas fa-desktop"></i>
+        <h4>{{game.platform}}</h4>
+      </nav>
+      <nav>
+        <i class ="far fa-clock"></i>
+        <h4>{{game.release_date}}</h4>
+      </nav>
+      <router-link :to="{ name: 'detail', params: { id: game.id } }">
+        See more
+      </router-link>
   </div>
 </template>
 
 <style scoped>
+
 div {
-  width: 500px  ;
+  width: 100%;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  background: #121738;
-  color: #D1BDFF;
+  background: #111111;
+  color: #E5E4E2;
   border-radius: 10px;
 }
 
@@ -56,8 +77,8 @@ h4, i {
 }
 
 a {
-  background: #000000;
-  color: #FF89B5;
+  background: #BEBFC5;
+  color: #353839;
   font-size: 24px;
   padding: 10px 20px;
   margin-left: auto;

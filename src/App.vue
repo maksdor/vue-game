@@ -9,7 +9,6 @@ import { RouterView } from "vue-router";
 <template>
   <div class = 'app'>
     <Header/>
-    <GameCard/>
     <RouterView/>
   </div>
 </template>
